@@ -1,0 +1,26 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0}">
+
+   <div class="head">
+     <div class="title">
+       <h2> {{ post.title }} </h2>
+     </div>
+     <div class="date"> {{ post.created_at | date : 'd/MM/y' | uppercase }} </div>
+   </div>
+
+   <div class="content">
+     <p> {{ post.content }} </p>
+   </div>
+
+  <div class="row">
+    <div class="title">
+      <button type="button" class="btn btn-success" (click)="addLoveIt(index)"><i class="fas fa-heart"></i></button>
+      <button type="button" class="btn btn-danger" (click)="removeLoveIt(index)"><i class="fas fa-heart-broken"></i></button>
+    </div>
+    <div class="date">
+      <button type="button" class="btn btn-primary" (click)="removePost(post)"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+
+</li>
